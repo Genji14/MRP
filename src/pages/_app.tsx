@@ -1,6 +1,15 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
+import { NextIntlClientProvider } from 'next-intl'
+import type { AppProps } from 'next/app'
+import { useRouter } from 'next/router'
+
+import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  const router = useRouter()
+
+  return (
+    <NextIntlClientProvider locale={router.locale} timeZone="UTC" messages={pageProps.messages}>
+      <Component {...pageProps} />
+    </NextIntlClientProvider>
+  )
 }
