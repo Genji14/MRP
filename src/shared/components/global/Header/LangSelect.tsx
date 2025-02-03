@@ -23,9 +23,9 @@ export const LangSelect = () => {
     <Popover>
       <PopoverTrigger>
         <Button variant="outline">
-          <div className="flex items-center gap-1">
+          <div className="mr-1 flex items-center gap-1.5">
             <CircleFlag countryCode={locale == 'vi' ? 'vn' : 'us'} height="20" width="20" />
-            <span className="font-medium uppercase">{locale}</span>
+            <span className="h-full font-medium uppercase">{locale}</span>
           </div>
           <ChevronDown />
         </Button>

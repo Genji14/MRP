@@ -6,7 +6,7 @@ export const BaseLayout = ({ children }: PropsWithChildren) => {
   return (
     <>
       <Header />
-      <main className="relative z-0 mt-24">{children}</main>
+      <main className="relative z-0 mt-20">{children}</main>
     </>
   )
 }
