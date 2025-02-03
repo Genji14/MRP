@@ -1,0 +1,25 @@
+{
+  "components": {
+    "common": {
+      "header": {
+        "nav": {
+          "begin": "Beginning",
+          "about": "About VTC",
+          "solution": "Solution",
+          "process": "Process",
+          "insights": "Insights",
+          "contact": "Contact"
+        },
+        "langSelect": {
+          "language": "Languages"
+        },
+        "login": "Login",
+        "register": "Register"
+      }
+    }
+  },
+  "home": {
+    "hello": "hello",
+    "switchLocale": "Switch to {locale, select, vi {Vietnamese} en {English} other {Unknown}}"
+  }
+}
