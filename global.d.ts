@@ -1,5 +1,5 @@
-import en from './src/shared/messages/en.json'
-import vi from './src/shared/messages/vi.json'
+import en from './messages/en.json'
+import vi from './messages/vi.json'
 
 type Messages = typeof en & typeof vi
 

@@ -1,0 +1,33 @@
+{
+  "layout": {
+    "base": {
+      "header": {
+        "nav": {
+          "begin": "Khởi đầu",
+          "about": "Về VTC",
+          "solution": "Giải pháp",
+          "process": "Quy trình",
+          "insights": "Tầm nhìn",
+          "contact": "Liên hệ"
+        },
+        "langSelect": {
+          "language": "Ngôn ngữ"
+        },
+        "buttons": {
+          "login": "Đăng nhập",
+          "register": "Đăng ký"
+        }
+      },
+      "footer": {}
+    }
+  },
+  "components": {
+    "common": {}
+  },
+  "pages": {
+    "home": {
+      "hello": "xin chào",
+      "switchLocale": "Chuyển sang tiếng {locale, select, vi {Việt} en {Anh} other {Khác}}"
+    }
+  }
+}

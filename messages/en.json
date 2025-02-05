@@ -1,0 +1,33 @@
+{
+  "layout": {
+    "base": {
+      "header": {
+        "nav": {
+          "begin": "Beginning",
+          "about": "About VTC",
+          "solution": "Solution",
+          "process": "Process",
+          "insights": "Insights",
+          "contact": "Contact"
+        },
+        "langSelect": {
+          "language": "Languages"
+        },
+        "buttons": {
+          "login": "Login",
+          "register": "Register"
+        }
+      },
+      "footer": {}
+    }
+  },
+  "components": {
+    "common": {}
+  },
+  "pages": {
+    "home": {
+      "hello": "hello",
+      "switchLocale": "Switch to {locale, select, vi {Vietnamese} en {English} other {Unknown}}"
+    }
+  }
+}

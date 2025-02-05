@@ -1,8 +1,6 @@
-import { PropsWithChildren } from 'react'
-
 import { Header } from '@/components/global'
 
-export const BaseLayout = ({ children }: PropsWithChildren) => {
+export default function BaseLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
       <Header />
