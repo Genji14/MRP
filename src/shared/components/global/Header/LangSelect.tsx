@@ -2,7 +2,7 @@
 
 import { ChevronDown } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { CircleFlag } from 'react-circle-flags'
 
 import { cn } from '@/lib/utils'
@@ -13,7 +13,6 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 
 export const LangSelect = () => {
   const t = useTranslations('layout.base.header.langSelect')
-  const { replace } = useRouter()
 
   const pathname = usePathname()
   const locale = pathname.split('/')[1]
@@ -21,28 +20,28 @@ export const LangSelect = () => {
   const changeLocale = (lang: string) => {
     if (lang !== locale) {
       const newPathname = `/${lang}${pathname.substring(locale.length + 1)}`
-      replace(newPathname)
+      window.location.href = newPathname
     }
   }
 
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline">
-          <div className="mr-1 flex items-center gap-1.5">
+        <Button variant="ghost" className="flex justify-between">
+          <div className="flex items-center gap-1.5">
             <CircleFlag countryCode={locale === 'vi' ? 'vn' : 'us'} height="20" width="20" />
             <span className="h-full font-medium uppercase">{locale}</span>
           </div>
           <ChevronDown />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="h-fit w-fit p-0">
+      <PopoverContent className="mt-1 h-fit w-fit p-0">
         <Command className="md:min-w-[200px]">
           <CommandList>
             <CommandGroup heading={t('language')}>
               <CommandItem
                 className={cn(
-                  locale === 'en' ? 'bg-accent font-medium' : 'text-muted-foreground',
+                  // locale === 'en' ? 'bg-gray-200 font-medium' : 'text-muted-foreground',
                   'cursor-pointer',
                 )}
                 onSelect={() => changeLocale('en')}
@@ -52,7 +51,7 @@ export const LangSelect = () => {
               </CommandItem>
               <CommandItem
                 className={cn(
-                  locale === 'vi' ? 'bg-accent font-medium' : 'text-muted-foreground',
+                  // locale === 'vi' ? 'bg-gray-200 font-medium' : 'text-muted-foreground',
                   'cursor-pointer',
                 )}
                 onSelect={() => changeLocale('vi')}

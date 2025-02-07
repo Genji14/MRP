@@ -28,6 +28,14 @@
     "home": {
       "hello": "hello",
       "switchLocale": "Switch to {locale, select, vi {Vietnamese} en {English} other {Unknown}}"
+    },
+    "auth": {
+      "login": {
+        "texts": {
+          "title": "Sign in to {app}",
+          "content": "Empowering businesses to overcome challenges and grow sustainably"
+        }
+      }
     }
   }
 }

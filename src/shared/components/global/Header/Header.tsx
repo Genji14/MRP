@@ -4,10 +4,12 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
+import { Profile } from '@/components/global/Header/Profile'
 import { Button } from '@/components/ui/button'
 
 import { LangSelect } from './LangSelect'
 import { Link } from '@/core/i18n/routing'
+import { useCurrentUser } from '@/hooks'
 import LogoImage from '~/logo.png'
 
 const routesMap = [
@@ -45,6 +47,7 @@ const routesMap = [
 
 export const Header = () => {
   const t = useTranslations('layout.base.header')
+  const { data, isFetching } = useCurrentUser()
 
   const [isMounted, setIsMounted] = useState(false)
 
@@ -53,7 +56,7 @@ export const Header = () => {
   return (
     <header className="fixed top-0 z-40 w-full bg-background">
       <div className="flex h-20 w-full items-center justify-between space-x-4 border-b px-6 shadow sm:space-x-0">
-        <div className="flex items-center gap-10">
+        <div className="flex items-center gap-8">
           <Link href="/">
             <Image src={LogoImage} alt="Logo" sizes="fixed" className="h-20 w-20 object-contain" />
           </Link>
@@ -71,11 +74,16 @@ export const Header = () => {
             ))}
           </nav>
         </div>
-        <div className="flex gap-2">
+        <div className="flex items-center gap-2">
           {isMounted && <LangSelect />}
-          <Link href={'/auth/login'}>
-            <Button>{t('buttons.login')}</Button>
-          </Link>
+          {!isFetching &&
+            (data ? (
+              <Profile data={data} />
+            ) : (
+              <Link href={'/auth/login'}>
+                <Button>{t('buttons.login')}</Button>
+              </Link>
+            ))}
         </div>
       </div>
     </header>

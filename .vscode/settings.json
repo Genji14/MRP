@@ -7,5 +7,6 @@
   },
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.importModuleSpecifier": "non-relative",
-  "i18n-ally.localesPaths": ["messages", "src/shared/core/i18n"]
+  "i18n-ally.localesPaths": ["messages", "src/shared/core/i18n"],
+  "i18n-ally.sourceLanguage": "en"
 }

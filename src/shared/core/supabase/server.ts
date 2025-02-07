@@ -1,23 +1,26 @@
-import { createServerClient, serializeCookieHeader } from '@supabase/ssr'
-import { NextRequest, NextResponse } from 'next/server'
+import { createServerClient } from '@supabase/ssr'
 
-export function createSupaServer({ req, res }: { req: NextRequest; res: NextResponse }) {
-  const supabase = createServerClient(
+export async function createSupaServer(cookieStore: any) {
+  return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
         getAll() {
-          return req.cookies.getAll().map(({ name, value }) => ({ name, value }))
+          return cookieStore.getAll()
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) => {
-            res.headers.append('Set-Cookie', serializeCookieHeader(name, value, options))
-          })
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options),
+            )
+          } catch {
+            // The `setAll` method was called from a Server Component.
+            // This can be ignored if you have middleware refreshing
+            // user sessions.
+          }
         },
       },
     },
   )
-
-  return supabase
 }

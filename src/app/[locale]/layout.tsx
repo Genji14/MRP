@@ -1,12 +1,5 @@
-import './globals.css'
-import Providers from '@/providers'
+import { LocaleChecker } from '@/components/global'
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html>
-      <Providers>
-        <body className="antialiased">{children}</body>
-      </Providers>
-    </html>
-  )
+export default function LocaleLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <LocaleChecker>{children}</LocaleChecker>
 }

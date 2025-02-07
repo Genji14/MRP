@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -5,6 +6,8 @@ import { OAuthBtns } from '#/auth/login/components'
 import logoImg from '~/logo.png'
 
 export const LoginPageContent = () => {
+  const t = useTranslations('pages.auth.login')
+
   return (
     <div className="grid h-screen grid-cols-3 p-6">
       <div className="col-start-2 flex flex-col items-center justify-between">
@@ -14,11 +17,9 @@ export const LoginPageContent = () => {
           </Link>
           <div className="space-y-2 text-center">
             <h1 className="scroll-m-20 text-3xl font-bold tracking-tight lg:text-4xl">
-              Sign in to MRP
+              {t('texts.title', { app: 'MRP' })}
             </h1>
-            <h3 className="text-lg text-muted-foreground">
-              We suggest using the email address you use at work
-            </h3>
+            <h3 className="text-nowrap text-muted-foreground">{t('texts.content')}</h3>
           </div>
           <OAuthBtns />
         </div>

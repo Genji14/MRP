@@ -6,6 +6,8 @@ export default {
   theme: {
     extend: {
       colors: {
+        facebook: '#0866FF',
+        brown: '#BA3629',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

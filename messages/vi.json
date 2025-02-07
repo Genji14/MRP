@@ -28,6 +28,14 @@
     "home": {
       "hello": "xin chào",
       "switchLocale": "Chuyển sang tiếng {locale, select, vi {Việt} en {Anh} other {Khác}}"
+    },
+    "auth": {
+      "login": {
+        "texts": {
+          "title": "Đăng nhập vào {app}",
+          "content": "Đồng hành cùng doanh nghiệp vượt thử thách và phát triển bền vững"
+        }
+      }
     }
   }
 }
